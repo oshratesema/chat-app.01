@@ -1,16 +1,34 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.svg'
 
 function Register() {
+
+    const {values, setValues} = useState({
+        username: '',
+        email: '',
+        password: '',
+        confirmPassword: ''
+
+    });
     
     const handleSubmit = (event) => {
         event.preventDefault();
         alert('form')
     };
 
-    const handleChange = (event) => {};
+    const handleValidation = () => {
+        const {password, confirmPassword, username, email} = values;
+        if(password !== confirmPassword) {
+
+        }
+    } 
+
+    const handleChange = (event) => {
+        setValues({...values, [event.target.name]: event.target.value})
+    };
+
 
   return (
     <>
@@ -20,10 +38,10 @@ function Register() {
                 <img src={logo} alt="Logo" />
                 <h1>snappy</h1>
             </div>
-            <input type="text" placeholder='Username' name='username' onChange={handleChange()} />
-            <input type="email" placeholder='email' name='email' onChange={handleChange()} />
-            <input type="password" placeholder='password' name='password' onChange={handleChange()} />
-            <input type="password" placeholder='Confirm Password' name='ConfirmPassword' onChange={handleChange()} />
+            <input type="text" placeholder='Username' name='username' onChange={(e)=>handleChange(e)} />
+            <input type="email" placeholder='email' name='email' onChange={(e)=>handleChange(e)} />
+            <input type="password" placeholder='password' name='password' onChange={(e)=>handleChange(e)} />
+            <input type="password" placeholder='Confirm Password' name='ConfirmPassword' onChange={(e)=>handleChange(e)} />
             <button type='submit'>Create User</button>
             <span>Already have an account?</span> <Link to={'/Login'}>Login</Link>
         </form>
@@ -78,7 +96,7 @@ input {
 button {
   background-color: #4e0eff;
   color: white;
-  padding: 1rem 2rem;
+  padding: 1rem 2r em;
   border: none;
   font-weight: bold;
   cursor: pointer;
