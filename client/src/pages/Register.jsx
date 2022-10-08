@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.svg'
+import {ToastContainer, toast} from 'react-toastify'
+import 'react-toastify/dist/reactToastify.css'
 
 function Register() {
 
@@ -15,13 +17,19 @@ function Register() {
     
     const handleSubmit = (event) => {
         event.preventDefault();
-        alert('form')
+        handleValidation()
     };
 
     const handleValidation = () => {
         const {password, confirmPassword, username, email} = values;
         if(password !== confirmPassword) {
-
+            console.log('valditah', toast);
+            toast.error('password and confirm should be same.',{
+                position: 'bottom-right',
+                autoClose: 8000,
+                pauseOnHover: true,
+                theme:'dark'
+            });
         }
     } 
 
@@ -46,6 +54,7 @@ function Register() {
             <span>Already have an account?</span> <Link to={'/Login'}>Login</Link>
         </form>
     </FormContainer>
+    <ToastContainer/>
     </>
   );
 }
