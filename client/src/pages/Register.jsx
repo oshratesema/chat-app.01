@@ -3,11 +3,10 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.svg'
 import {ToastContainer, toast} from 'react-toastify'
-import 'react-toastify/dist/reactToastify.css'
 
 function Register() {
-
-    const {values, setValues} = useState({
+  const notify = () => toast("Wow so easy!");
+    const [values, setValues] = useState({
         username: '',
         email: '',
         password: '',
@@ -34,9 +33,8 @@ function Register() {
     } 
 
     const handleChange = (event) => {
-        setValues({...values, [event.target.name]: event.target.value})
+      setValues({...values, [event.target.name]: event.target.value });
     };
-
 
   return (
     <>
@@ -46,13 +44,17 @@ function Register() {
                 <img src={logo} alt="Logo" />
                 <h1>snappy</h1>
             </div>
-            <input type="text" placeholder='Username' name='username' onChange={(e)=>handleChange(e)} />
-            <input type="email" placeholder='email' name='email' onChange={(e)=>handleChange(e)} />
-            <input type="password" placeholder='password' name='password' onChange={(e)=>handleChange(e)} />
-            <input type="password" placeholder='Confirm Password' name='ConfirmPassword' onChange={(e)=>handleChange(e)} />
+            <input type="text" placeholder='Username' name='username' onChange={(e) => handleChange(e)} />
+            <input type="email" placeholder='email' name='email' onChange={(e) => handleChange(e)} />
+            <input type="password" placeholder='password' name='password' onChange={(e) => handleChange(e)} />
+            <input type="password" placeholder='Confirm Password' name='ConfirmPassword' onChange={(e) => handleChange(e)} />
             <button type='submit'>Create User</button>
             <span>Already have an account?</span> <Link to={'/Login'}>Login</Link>
         </form>
+        <div>
+        <button onClick={notify}>Notify!</button>
+        <ToastContainer />
+      </div>
     </FormContainer>
     <ToastContainer/>
     </>
