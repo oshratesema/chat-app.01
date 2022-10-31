@@ -23,14 +23,10 @@ export default function Contacts(contacts, currentUser) {
                     <img src={Logo} alt="logo" />
                     <h3>snappy</h3>
                 </div>
-                {/* <div className="contacts">
-                    {
-                        contacts.map((contact, index) {})
-                    }
-                </div> */}
+                <div className="contacts"></div>
+                                
             </Container>
-        )
-    }
+        )}
 
     </>
   )
