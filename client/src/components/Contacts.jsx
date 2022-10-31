@@ -17,12 +17,17 @@ export default function Contacts(contacts, currentUser) {
 
   return (
     <>
-    {
-        currentUserImage && currentUserName && (
+    {currentUserImage && currentUserName && (
             <Container>
                 <div className='brand'>
-                    <img src="" alt="" />
+                    <img src={Logo} alt="logo" />
+                    <h3>snappy</h3>
                 </div>
+                {/* <div className="contacts">
+                    {
+                        contacts.map((contact, index) {})
+                    }
+                </div> */}
             </Container>
         )
     }

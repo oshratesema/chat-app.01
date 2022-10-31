@@ -24,12 +24,12 @@ export default function SetAvatar() {
   };
 
 
- const navigateToLogin =  async () => {
-    if(!localStorage.getItem('chat-app-user')){
-        navigate('/login')
-    }
+//  const navigateToLogin =  async () => {
+//     if(!localStorage.getItem('chat-app-user')){
+//         navigate('/login')
+//     }
 
- }
+//  }
  const SetProfilePicture = async () => {
     if (selectedAvatar === undefined) {
       toast.error("Please select an avatar", toastOptions);
@@ -72,7 +72,7 @@ export default function SetAvatar() {
 
   useEffect(() => {
     getAvatars();
-    navigateToLogin()
+    // navigateToLogin()
   }, []);
 
   return (
