@@ -16,7 +16,7 @@ function Chat() {
   //   if(!localStorage.getItem('chat-app-user')){
   //       navigate('/login')
   //   }else{
-  // setCurrentUser( await JSON.parse(localStorage.getItem('chat-app-user')))
+  // setCurrentUser(await JSON.parse(localStorage.getItem('chat-app-user')))
   //   } if(currentUser.isAvatarImageSet) {
   //     const data = await axios.get(`${allUsersRoute}/${currentUser._id}`)
   //     setContacts(data.data)

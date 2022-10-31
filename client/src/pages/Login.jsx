@@ -17,11 +17,11 @@ export default function Login() {
     draggable: true,
     theme: "dark",
   };
-  useEffect(() => {
-    if (localStorage.getItem('chat-app-user')) {
-      navigate("/");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (localStorage.getItem('chat-app-user')) {
+  //     navigate("/");
+  //   }
+  // }, []);
 
   const handleChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
@@ -47,6 +47,7 @@ export default function Login() {
         username,
         password,
       });
+      console.log(data);
       if (data.status === false) {
         toast.error(data.msg, toastOptions);
       }

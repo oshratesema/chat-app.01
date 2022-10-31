@@ -23,11 +23,11 @@ export default function Register() {
     confirmPassword: "",
   });
 
-  useEffect(() => {
-    if (localStorage.getItem('chat-app-user')) {
-      navigate("/");
-    }
-  }, []);
+  // useEffect(() => {
+  //   if (localStorage.getItem('chat-app-user')) {
+  //     navigate("/");
+  //   }
+  // }, []);
 
 
   const handleChange = (event) => {
