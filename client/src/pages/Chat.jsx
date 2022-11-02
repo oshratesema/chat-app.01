@@ -10,23 +10,29 @@ function Chat() {
   const navigate = useNavigate();
   const [contacts,setContacts] = useState([]);
   const [currentUser, setCurrentUser] = useState(undefined);
+console.log(currentUser);
 
+  const checkLocalStorage =  async () => {
+    if(!localStorage.getItem('chat-app-user')){
+        navigate('/login')
+    }else{
+  setCurrentUser(await JSON.parse(localStorage.getItem('chat-app-user')))
+    }
+  }
 
-  // const checkLocalStorage =  async () => {
-  //   if(!localStorage.getItem('chat-app-user')){
-  //       navigate('/login')
-  //   }else{
-  // setCurrentUser( await JSON.parse(localStorage.getItem('chat-app-user')))
-  //   } if(currentUser.isAvatarImageSet) {
-  //     const data = await axios.get(`${allUsersRoute}/${currentUser._id}`)
-  //     setContacts(data.data)
-  //   }else{
-  //     navigate('/setAvatar')
-  //   }
-  // }
-  //  useEffect(() =>{
-  //   checkLocalStorage()
-  // },[currentUser])
+    const backToAvatar = async () => {
+      if(currentUser.isAvatarImageSet) {
+       const data = await axios.get(`${allUsersRoute}/${currentUser._id}`)
+       setContacts(data.data)
+     }else{
+       navigate('/setAvatar')
+     }
+   }
+
+ useEffect(() =>{
+     backToAvatar()
+    checkLocalStorage()
+  },[currentUser])
 
   return (
     <Container>
