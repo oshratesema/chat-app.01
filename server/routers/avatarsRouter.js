@@ -1,11 +1,7 @@
-const express = require('express');
-const router = express.Router();
+const {getAllAvatars} = require('../controllers/avatarsController')
 
-const avatarsController = require('../controllers/avatarsController');
+const router = require("express").Router();
 
-router.get('/', async (req,res) => {
-    const avatars = await avatarsController.getAvatars()
-    res.json(avatars);
-})
+router.get('/allAvatars', getAllAvatars)
 
 module.exports = router;

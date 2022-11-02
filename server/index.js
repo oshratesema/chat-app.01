@@ -3,7 +3,7 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 
 const userRouters = require('./routers/usersRouters')
-const usersControllers = require('./controllers/avatarsController')
+const usersControllers = require('./routers/avatarsRouter')
 
 const app = express()
 require('dotenv').config();
