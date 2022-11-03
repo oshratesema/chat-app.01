@@ -31,7 +31,6 @@ export default function SetAvatar() {
    setAllAvatar(data)
   }
 
-  console.log(allAvatars);
 //  const navigateToLogin =  async () => {
 //     if(!localStorage.getItem('chat-app-user')){
 //         navigate('/login')
