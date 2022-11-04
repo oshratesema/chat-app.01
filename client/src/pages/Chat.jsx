@@ -30,6 +30,8 @@ function Chat() {
      }
    }
 
+   console.log(contacts);
+
  useEffect(() =>{
      backToAvatar()
     checkLocalStorage()
