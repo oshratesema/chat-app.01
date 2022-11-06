@@ -18,24 +18,30 @@ function Chat() {
       setCurrentUser(await JSON.parse(localStorage.getItem('chat-app-user')))
     }
   }
+
   console.log(currentUser);
-  console.log(contacts);
+
 
     const backToAvatar = async () => {
-      if(currentUser?.isAvatarImageSet) {
-       const data = await axios.get(`${allUsersRoute}/${currentUser._id}`)
-       setContacts(data.data)
-     }else{
+      if(currentUser) {
+        if(currentUser.isAvatarImageSet){
+          const data = await axios.get(`${allUsersRoute}/${currentUser._id}`)
+          console.log(data.data);
+          setContacts(data.data)
+        }else{
        navigate('/setAvatar')
      }
    }
+  
+  }
 
-   console.log(contacts);
-
- useEffect(() =>{
+   useEffect(() =>{
      backToAvatar()
+   },[currentUser])
+
+   useEffect(() =>{
     checkLocalStorage()
-  },[currentUser])
+  },[])
 
   return (
     <Container>

@@ -7,7 +7,6 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Buffer } from "buffer";
 import { setAvatarRoute } from "../utils/APIRoutes";
-import { allAvatarsRoute } from "../utils/APIRoutes";
 
 export default function SetAvatar() {
   const api = "https://api.multiavatar.com/45678946";
@@ -26,19 +25,14 @@ export default function SetAvatar() {
   };
 
 
-  const avatarsData = async () => {
-    const {data} = await axios.get(`${allAvatarsRoute}`)
-   setAllAvatar(data)
-  }
+ const navigateToLogin =  async () => {
+    if(!localStorage.getItem('chat-app-user')){
+        navigate('/login')
+    }
 
-  console.log(allAvatars);
+ }
 
-//  const navigateToLogin =  async () => {
-//     if(!localStorage.getItem('chat-app-user')){
-//         navigate('/login')
-//     }
-
-//  }
+ console.log(selectedAvatar);
 
  const SetProfilePicture = async () => {
     if (selectedAvatar === undefined) {
@@ -47,18 +41,14 @@ export default function SetAvatar() {
       const user = await JSON.parse(
         localStorage.getItem('chat-app-user')
       );
-
       const { data } = await axios.post(`${setAvatarRoute}/${user._id}`, {
         image: avatars[selectedAvatar],
       });
 
-      if (data.isSet) {
+      if (user.isAvatarImageSet === false ||  user.avatarImage === '' ) {
         user.isAvatarImageSet = true;
         user.avatarImage = data.image;
-        localStorage.setItem(
-          'chat-app-user',
-          JSON.stringify(user)
-        );
+        localStorage.setItem('chat-app-user', JSON.stringify(user));
         navigate("/");
       } else {
         toast.error("Error setting avatar. Please try again.", toastOptions);
@@ -73,7 +63,6 @@ export default function SetAvatar() {
       const image = await axios.get(`${api}/${Math.round(Math.random() * 1000)}`);
       console.log(image);
       const buffer = new Buffer(image.data);
-      console.log(buffer);
       data.push(buffer.toString("base64"));
     }
     setAvatar(data);
@@ -82,8 +71,8 @@ export default function SetAvatar() {
 
   useEffect(() => {
     getAvatars();
-    avatarsData()
-    // navigateToLogin()
+    // avatarsData()
+    navigateToLogin()
   }, []);
 
   return (
