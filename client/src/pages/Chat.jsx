@@ -5,6 +5,7 @@ import axios from 'axios'
 import { allUsersRoute } from '../utils/APIRoutes';
 import Contacts from '../components/Contacts';
 import Welcome from '../components/Welcome';
+import ChatContainer from '../components/ChatContainer';
 
 function Chat() {
 
@@ -49,7 +50,11 @@ setCurrentChat(chat)
     <Container>
       <div className="container">
            <Contacts contacts={contacts} currentUser={currentUser} changeChat={handleChatChange} />
-           <Welcome currentUser={currentUser}/>
+           {
+            currentChat === undefined ? 
+            <Welcome currentUser={currentUser}/> :
+            <ChatContainer currentChat={currentChat}/>
+           }
       </div>
     </Container>
   )
