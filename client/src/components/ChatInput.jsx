@@ -4,7 +4,7 @@ import Picker from 'emoji-picker-react';
 import {IoMdSend} from 'react-icons/io'
 import {BsEmojiSmileFill} from 'react-icons/bs'
 
-export default function ChatInput() {
+export default function ChatInput({handleSendMsg}) {
 
    const [showEmojiPicker, setShowEmojiPicker] = useState(false);
    const [msg, setMsg] = useState('');
@@ -15,30 +15,41 @@ export default function ChatInput() {
    }
 
    const handleEmojiClick = (event, emojiObject) => {
-       console.log(emojiObject);
-      let message = msg;
-      message += emojiObject.emoji;
-      setMsg(message);
-   }
+    console.log(emojiObject);
+    let message = msg;
+    message += emojiObject.emoji;
+    setMsg(message);
+  };
 
-  return (
+  const sendChat = (event) => { 
+    event.preventDefault();
+    if(msg.length > 0){
+       handleSendMsg(msg);
+       setMsg('')
+    }
+  }
+
+ return (
     <Container>
-        <div className="button-container">
-            <div className="emoji">
-                <BsEmojiSmileFill onClick={handleEmojiPickerHideShow}/>
-                {
-                    showEmojiPicker && <Picker onEmojiClick={handleEmojiClick}/>
-                }
-            </div>
+      <div className="button-container">
+        <div className="emoji">
+          <BsEmojiSmileFill onClick={handleEmojiPickerHideShow} />
+          {showEmojiPicker && <Picker onEmojiClick={handleEmojiClick} />}
         </div>
-        <form className='input-container'>
-            <input type="text" placeholder='type your message here' value={msg} onChange={(e) =>setMsg(e.target.value)}/>
-            <button className='submit'>
-                <IoMdSend/>
-            </button>
-        </form>
+      </div>
+      <form className="input-container" onSubmit={(e) => {sendChat(e)}}>
+        <input
+          type="text"
+          placeholder="type your message here"
+          onChange={(e) => setMsg(e.target.value)}
+          value={msg}
+        />
+        <button type="submit">
+          <IoMdSend />
+        </button>
+      </form>
     </Container>
-  )
+  );
 }
 
 const Container = styled.div`
@@ -65,7 +76,29 @@ const Container = styled.div`
       }
       .emoji-picker-react {
         position: absolute;
-        top:-350px;
+        top: -350px;
+        background-color: #080420;
+        box-shadow: 0 5px 10px #9a86f3;
+        border-color: #9a86f3;
+        .emoji-scroll-wrapper::-webkit-scrollbar {
+          background-color: #080420;
+          width: 5px;
+          &-thumb {
+            background-color: #9a86f3;
+          }
+        }
+        .emoji-categories {
+          button {
+            filter: contrast(0);
+          }
+        }
+        .emoji-search {
+          background-color: transparent;
+          border-color: #9a86f3;
+        }
+        .emoji-group:before {
+          background-color: #080420;
+        }
       }
     }
   }
