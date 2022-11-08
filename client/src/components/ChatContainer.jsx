@@ -6,6 +6,7 @@ import Messages from './Messages';
 import axios from 'axios'
 import { getAllMessageRoute, sendMessageRoute } from '../utils/APIRoutes';
 import { useRef } from 'react';
+import {v4 as uuidv4} from 'uuid'
 
 export default function ChatContainer({currentChat, currentUser, socket}) {
     
@@ -15,18 +16,19 @@ export default function ChatContainer({currentChat, currentUser, socket}) {
 
 
   const getMessages = async () => {
-    const response = await axios.post(getAllMessageRoute,{
-      from: currentUser._id,
-      to: currentChat._id
-    })
+    if(currentChat){
+      const response = await axios.post(getAllMessageRoute,{
+        from: currentUser._id,
+        to: currentChat._id
+      })
     setMessages(response.data)
   }
+}
 
-  console.log(messages);
 
   useEffect(() => {
     getMessages()
-  },currentChat)
+  },[currentChat])
 
     const handleSendMsg = async (msg) => {
      await axios.post(sendMessageRoute,{
@@ -41,7 +43,7 @@ export default function ChatContainer({currentChat, currentUser, socket}) {
      });
 
      const msgs = [...messages];
-     msg.push({fromSelf: true, messages: msg});
+     msgs.push({fromSelf: true, messages: msg});
      setMessages(msgs)
     };
 
@@ -78,7 +80,7 @@ export default function ChatContainer({currentChat, currentUser, socket}) {
           {
             messages.map((message) => {
               return(
-                <div>
+                <div ref={scrollRef} key={uuidv4()}>
                   <div className={`message ${message.fromSelf ? 'sended' : 'received'}`}>
                     <div className="content">
                       <p>
@@ -126,12 +128,20 @@ overflow: hidden;
       }
     }
  }
- .chat-messages{
+ .chat-messages {
   padding: 1rem 2rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   overflow: auto;
+  &::-webkit-scrollbar {
+    width: 0.2rem;
+    &-thumb {
+      background-color: #ffffff39;
+      width: 0.1rem;
+      border-radius: 1rem;
+    }
+  }
   .message{
     display: flex;
     align-items: center;

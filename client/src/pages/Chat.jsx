@@ -20,7 +20,8 @@ function Chat() {
     if(!localStorage.getItem('chat-app-user')){
       navigate('/login')
     }else{
-      setCurrentUser(await JSON.parse(localStorage.getItem('chat-app-user')))
+      setCurrentUser(
+        await JSON.parse(localStorage.getItem('chat-app-user')))
     }
   }
 
@@ -51,7 +52,7 @@ function Chat() {
   },[])
 
   const handleChatChange = (chat) => {
-setCurrentChat(chat)
+        setCurrentChat(chat)
   }
   return (
     <Container>
