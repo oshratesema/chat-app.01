@@ -9,7 +9,6 @@ import ChatContainer from '../components/ChatContainer';
 import {io} from 'socket.io-client'
 
 function Chat() {
-  
   const socket = useRef()
   const navigate = useNavigate();
   const [contacts,setContacts] = useState([]);
@@ -41,7 +40,7 @@ function Chat() {
       socket.current = io(host);
       socket.current.emit('add-user', currentUser._id);
     }
-  })
+  },[currentUser])
 
    useEffect(() =>{
      backToAvatar()
