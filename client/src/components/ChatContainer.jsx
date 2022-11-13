@@ -24,7 +24,6 @@ export default function ChatContainer({currentChat, currentUser, socket}) {
   }
 }
 
-
   useEffect(() => {
     getMessages()
   },[currentChat])
@@ -41,8 +40,8 @@ export default function ChatContainer({currentChat, currentUser, socket}) {
       message: msg,
      });
 
-     const msgs = [...messages];
-     msgs.push({fromSelf: true, messages: msg});
+     const msgs= [...messages];
+     msgs.push({fromSelf: true, message: msg});
      setMessages(msgs)
     };
 
