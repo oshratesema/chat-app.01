@@ -151,6 +151,9 @@ export default function Contacts({contacts, currentUser, changeChat}) {
             font-size: 1rem;
           }
         }
-      }
+      }    
     }
+
+
+
   `;

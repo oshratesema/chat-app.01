@@ -20,11 +20,18 @@ justify-content: center;
 align-items: center;
 flex-direction: column;
 color: white;
+
+@media screen and (min-width: 414) and (max-width: 896) {
+  background-color: pink;
+}  
+
  img{
     height: 20rem;
  }
  span{
     color: #4e0eff;
  }
+
+
 
 `;
