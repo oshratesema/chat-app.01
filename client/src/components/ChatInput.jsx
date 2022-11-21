@@ -52,7 +52,7 @@ export default function ChatInput({handleSendMsg}) {
 }
 
 const Container = styled.div`
-  display: grid;
+display: grid;
   align-items: center;
   grid-template-columns: 5% 95%;
   background-color: #080420;
@@ -143,4 +143,4 @@ const Container = styled.div`
       }
     }
   }
-`;
+  `;

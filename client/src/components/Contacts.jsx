@@ -1,12 +1,16 @@
 import React,{useState, useEffect} from 'react'
 import styled from 'styled-components'
 import Logo from '../assets/logo.svg'
+import Dropdown from 'react-bootstrap/Dropdown';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Logout from './Logout';
 
 
 export default function Contacts({contacts, currentUser, changeChat}) {
     const [currentUserName, setCurrentUserName] = useState(undefined);
     const [currentUserImage, setCurrentUserImage] = useState(undefined);
     const [currentSelected, setCurrentSelected] = useState(undefined);
+    const [open, setOpen] = useState(false);
 
     useEffect(() => {
      if(currentUser){
@@ -20,8 +24,59 @@ export default function Contacts({contacts, currentUser, changeChat}) {
       changeChat(contact);
     }
 
+    const handleDropdown = () => {
+      setOpen(!open)
+    }
+
+    
+
     return (
-      <>
+      <> 
+      <div className='dropDown d-flex d-md-none'>
+      <Dropdown>
+      <Dropdown.Toggle variant="success" className='bg-dark col-12 border border-dark' id="dropdown-basic" style={{width:'300px'}}>All Contacts</Dropdown.Toggle>
+      <Dropdown.Menu className='bg-dark'>
+      {/* <Container> */}
+            <div className="contacts d-flex flex-column bg-dark">
+              {contacts.map((contact, index) => {
+                return (
+                  <div key={contact._id} className={` d-flex align-items-center mb-4 justify-content-between contact ${
+                      index === currentSelected ? "selected" : ""
+                    }` }
+                    onClick={() => changeCurrentChat(index, contact)}
+                  >
+                    <div className="avatar col-3">
+                      <img className='col-12'
+                        src={`data:image/svg+xml;base64,${contact.avatarImage}`}
+                        alt=""
+                      />
+                    </div>
+                    <div className="username">
+                      <h3 className='text-white me-2 '>{contact.username}</h3>
+                    </div>
+                  </div>
+                );
+              })}
+
+            </div>
+            {/* <div className="current-user">
+              <div className="avatar">
+                <img
+                  src={`data:image/svg+xml;base64,${currentUserImage}`}
+                  alt="avatar"
+                />
+              </div>
+              <div className="username">
+                <h2>{currentUserName}</h2>
+              </div>
+            </div> */}
+          {/* </Container> */}
+      </Dropdown.Menu>
+      </Dropdown>
+      <Logout/>
+      </div>
+      {/* full-screen */}
+      <div className='dropDown d-none d-md-flex'>
         {currentUserImage && currentUserName && (
           <Container>
             <div className="brand">
@@ -38,14 +93,14 @@ export default function Contacts({contacts, currentUser, changeChat}) {
                     }`}
                     onClick={() => changeCurrentChat(index, contact)}
                   >
-                    <div className="avatar">
-                      <img
+                    <div className="avatar col-3">
+                      <img className=''
                         src={`data:image/svg+xml;base64,${contact.avatarImage}`}
                         alt=""
                       />
                     </div>
-                    <div className="username">
-                      <h3>{contact.username}</h3>
+                    <div className="username col-4">
+                      <h3 className=''>{contact.username}</h3>
                     </div>
                   </div>
                 );
@@ -64,7 +119,8 @@ export default function Contacts({contacts, currentUser, changeChat}) {
               </div>
             </div>
           </Container>
-        )}
+        )}        
+      </div>
       </>
     );
   }
@@ -153,7 +209,4 @@ export default function Contacts({contacts, currentUser, changeChat}) {
         }
       }    
     }
-
-
-
   `;
