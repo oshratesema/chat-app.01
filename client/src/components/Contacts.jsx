@@ -30,7 +30,7 @@ export default function Contacts({contacts, currentUser, changeChat}) {
     
 
     return (
-      <div className='d-flex'> 
+      <> 
       <Dropdown className='dropDown d-flex d-md-none' style={{height:'50px'}}>
       <Dropdown.Toggle variant="success" className='bg-dark col-12 border border-dark' id="dropdown-basic" style={{width:'330px'}}>All Contacts</Dropdown.Toggle>
       <Dropdown.Menu className='dropdown-menu bg-dark'style={{width:'330px'}}>
@@ -61,7 +61,7 @@ export default function Contacts({contacts, currentUser, changeChat}) {
       {/* full-screen */}
       <div className='d-none d-md-flex'>
         {currentUserImage && currentUserName && (
-          <Container>
+          <Container style={{width:'100%'}}>
             <div className="brand">
               <img src={Logo} alt="logo" />
               <h3>snappy</h3>
@@ -101,7 +101,7 @@ export default function Contacts({contacts, currentUser, changeChat}) {
           </Container>
         )}        
       </div>
-      </div>
+      </>
     );
   }
 
@@ -156,6 +156,7 @@ export default function Contacts({contacts, currentUser, changeChat}) {
         .username {
           h3 {
             color: white;
+            font-size: 99%;
           }
         }
       }

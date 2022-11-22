@@ -61,7 +61,7 @@ function Chat() {
               <img src={Logo} alt="logo" />
               <h3>snappy</h3>
       </div>
-      <div className="container">
+      <div className="container ps-0">
             <Contacts contacts={contacts} currentUser={currentUser} changeChat={handleChatChange}/>
            {
             currentChat === undefined ? 
