@@ -7,6 +7,8 @@ import Contacts from '../components/Contacts';
 import Welcome from '../components/Welcome';
 import ChatContainer from '../components/ChatContainer';
 import {io} from 'socket.io-client'
+import Logo from '../assets/logo.svg'
+
 
 function Chat() {
   const socket = useRef()
@@ -55,8 +57,12 @@ function Chat() {
   }
   return (
     <Container>
-      <div className="container  ">
-            <Contacts contacts={contacts} currentUser={currentUser} changeChat={handleChatChange} />
+      <div className='brand d-flex d-md-none'>
+              <img src={Logo} alt="logo" />
+              <h3>snappy</h3>
+      </div>
+      <div className="container">
+            <Contacts contacts={contacts} currentUser={currentUser} changeChat={handleChatChange}/>
            {
             currentChat === undefined ? 
             <Welcome currentUser={currentUser}/> :
@@ -88,7 +94,19 @@ background-color: #131324;
   @media screen and (min-width: 414px) and (max-width: 720px) {
     grid-template-columns: 0% 100%;
   }
-}`
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+  color: white;
+  img {
+    height: 2rem;
+  }
+
+`
+
 ;
 
 export default Chat

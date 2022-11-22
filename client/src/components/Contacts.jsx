@@ -30,19 +30,19 @@ export default function Contacts({contacts, currentUser, changeChat}) {
     
 
     return (
-      <> 
+      <div className='d-flex'> 
       <Dropdown className='dropDown d-flex d-md-none' style={{height:'50px'}}>
       <Dropdown.Toggle variant="success" className='bg-dark col-12 border border-dark' id="dropdown-basic" style={{width:'330px'}}>All Contacts</Dropdown.Toggle>
       <Dropdown.Menu className='dropdown-menu bg-dark'style={{width:'330px'}}>
             <div className="contacts d-flex flex-column bg-dark">
               {contacts.map((contact, index) => {
                 return (
-                  <div key={contact._id} className={` d-flex align-items-center mb-4 justify-content-between contact ${
+                  <div key={contact._id} className={` d-flex align-items-center mb-4 justify-content-between border-bottom border-1 contact ${
                       index === currentSelected ? "selected" : ""
                     }` }
                     onClick={() => changeCurrentChat(index, contact)}
                   >
-                    <div className="avatar col-3">
+                    <div className="avatar col-3 mb-3">
                       <img className='col-12'
                         src={`data:image/svg+xml;base64,${contact.avatarImage}`}
                         alt=""
@@ -59,7 +59,7 @@ export default function Contacts({contacts, currentUser, changeChat}) {
       </Dropdown.Menu>
       </Dropdown>
       {/* full-screen */}
-      <div className='dropDown d-none d-md-flex'>
+      <div className='d-none d-md-flex'>
         {currentUserImage && currentUserName && (
           <Container>
             <div className="brand">
@@ -69,20 +69,17 @@ export default function Contacts({contacts, currentUser, changeChat}) {
             <div className="contacts">
               {contacts.map((contact, index) => {
                 return (
-                  <div
-                    key={contact._id}
-                    className={`contact ${
-                      index === currentSelected ? "selected" : ""
+                  <div key={contact._id} className={`contact overflow-hidden ${ index === currentSelected ? "selected" : ""
                     }`}
                     onClick={() => changeCurrentChat(index, contact)}
                   >
-                    <div className="avatar col-3">
-                      <img className=''
+                    <div className="avatar">
+                      <img
                         src={`data:image/svg+xml;base64,${contact.avatarImage}`}
                         alt=""
                       />
                     </div>
-                    <div className="username col-4">
+                    <div className="username">
                       <h3 className=''>{contact.username}</h3>
                     </div>
                   </div>
@@ -104,7 +101,7 @@ export default function Contacts({contacts, currentUser, changeChat}) {
           </Container>
         )}        
       </div>
-      </>
+      </div>
     );
   }
 
@@ -181,6 +178,7 @@ export default function Contacts({contacts, currentUser, changeChat}) {
       .username {
         h2 {
           color: white;
+          margin-right: 9px;
         }
       }
       @media screen and (min-width: 720px) and (max-width: 1080px) {

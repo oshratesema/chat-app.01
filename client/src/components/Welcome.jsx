@@ -20,6 +20,7 @@ justify-content: center;
 align-items: center;
 flex-direction: column;
 color: white;
+text-align: center;
 
 @media screen and (min-width: 414) and (max-width: 896) {
   background-color: pink;

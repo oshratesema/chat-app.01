@@ -124,6 +124,13 @@ const Container = styled.div`
   background-color: #131324;
   height: 100vh;
   width: 100vw;
+
+  @media screen and (min-width: 414px) and (max-width: 720px) {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
   .loader {
     max-inline-size: 100%;
   }
@@ -135,6 +142,11 @@ const Container = styled.div`
   .avatars {
     display: flex;
     gap: 2rem;
+    @media screen and (min-width: 414px) and (max-width: 720px) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
     .avatar {
       border: 0.4rem solid transparent;
       padding: 0.4rem;
