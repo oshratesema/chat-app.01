@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Logo from '../assets/logo.svg'
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
-import Logout from './Logout';
 
 
 export default function Contacts({contacts, currentUser, changeChat}) {
@@ -32,11 +31,9 @@ export default function Contacts({contacts, currentUser, changeChat}) {
 
     return (
       <> 
-      <div className='dropDown d-flex d-md-none'>
-      <Dropdown>
-      <Dropdown.Toggle variant="success" className='bg-dark col-12 border border-dark' id="dropdown-basic" style={{width:'300px'}}>All Contacts</Dropdown.Toggle>
-      <Dropdown.Menu className='bg-dark'>
-      {/* <Container> */}
+      <Dropdown className='dropDown d-flex d-md-none' style={{height:'50px'}}>
+      <Dropdown.Toggle variant="success" className='bg-dark col-12 border border-dark' id="dropdown-basic" style={{width:'330px'}}>All Contacts</Dropdown.Toggle>
+      <Dropdown.Menu className='dropdown-menu bg-dark'style={{width:'330px'}}>
             <div className="contacts d-flex flex-column bg-dark">
               {contacts.map((contact, index) => {
                 return (
@@ -59,22 +56,8 @@ export default function Contacts({contacts, currentUser, changeChat}) {
               })}
 
             </div>
-            {/* <div className="current-user">
-              <div className="avatar">
-                <img
-                  src={`data:image/svg+xml;base64,${currentUserImage}`}
-                  alt="avatar"
-                />
-              </div>
-              <div className="username">
-                <h2>{currentUserName}</h2>
-              </div>
-            </div> */}
-          {/* </Container> */}
       </Dropdown.Menu>
       </Dropdown>
-      <Logout/>
-      </div>
       {/* full-screen */}
       <div className='dropDown d-none d-md-flex'>
         {currentUserImage && currentUserName && (

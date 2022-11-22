@@ -37,9 +37,9 @@ export default function ChatInput({handleSendMsg}) {
         </div>
       </div>
       <form className="input-container" onSubmit={(e) => {sendChat(e)}}>
-        <input
+        <input id='messageBox'
           type="text"
-          placeholder="type your message here"
+          placeholder=""
           onChange={(e) => setMsg(e.target.value)}
           value={msg}
         />
@@ -52,7 +52,7 @@ export default function ChatInput({handleSendMsg}) {
 }
 
 const Container = styled.div`
-display: grid;
+  display: grid;
   align-items: center;
   grid-template-columns: 5% 95%;
   background-color: #080420;
@@ -68,10 +68,18 @@ display: grid;
     gap: 1rem;
     .emoji {
       position: relative;
+      @media screen and (min-width: 414px) and (max-width: 720px) {
+        position: relative;
+        right:20px;
+      }
       svg {
         font-size: 1.5rem;
         color: #ffff00c8;
         cursor: pointer;
+        @media screen and (min-width: 414px) and (max-width: 720px) {
+          width: 35px;
+        }
+
       }
       .emoji-picker-react {
         position: absolute;
@@ -108,6 +116,12 @@ display: grid;
     align-items: center;
     gap: 2rem;
     background-color: #ffffff34;
+    @media screen and (min-width: 414px) and (max-width: 720px) {
+      // position: relative;
+      // right: 40px;  
+      // width: 115%;
+      }
+    }
     input {
       width: 90%;
       height: 60%;
@@ -137,10 +151,14 @@ display: grid;
           font-size: 1rem;
         }
       }
+      @media screen and (min-width: 414px) and (max-width: 720px) {
+        position: relative;
+        left: 30px;  
+      }
       svg {
         font-size: 2rem;
         color: white;
       }
     }
   }
-  `;
+`;

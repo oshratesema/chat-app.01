@@ -63,7 +63,8 @@ export default function ChatContainer({currentChat, currentUser, socket}) {
 
   return (
     <Container>
-        <div className="chat-header">
+      <div className='chat-container d-flex flex-column mt-md-0 overflow-hidden' style={{height:'100%'}}>
+        <div className="chat-header d-flex justify-content-between mt-5 mt-md-0" style={{height:'10%'}}>
             <div className="user-details">
                 <div className="avatar">
                 <img src={`data:image/svg+xml;base64,${currentChat.avatarImage}`} alt="avatar"/>
@@ -72,9 +73,11 @@ export default function ChatContainer({currentChat, currentUser, socket}) {
                     <h3>{currentChat.username}</h3>
                 </div>
             </div>
+            <div className='d-flex align-items-center'>
             <Logout/>
+            </div>
         </div>
-        <div className="chat-messages">
+        <div className="chat-messages" style={{height:'80%'}}>
           {
             messages.map((message) => {
               return(
@@ -90,7 +93,10 @@ export default function ChatContainer({currentChat, currentUser, socket}) {
               )
             })}
         </div>
+        <div className='chat-input-container' style={{height:'10%'}}>
         <ChatInput handleSendMsg={handleSendMsg}/>
+        </div>
+      </div>
     </Container>
   )
 }
@@ -98,18 +104,20 @@ export default function ChatContainer({currentChat, currentUser, socket}) {
 const Container = styled.div`
 padding-top: 1rem;
 display: grid;
-grid-template-rows: 10% 78% 12%;
+// grid-template-rows: 98% 1% 1%;
+flex-direction; column;
 gap: 0.1rem;
 overflow: hidden;
 @media screen and (min-width: 720px) and (max-width: 1080px) {
-  grid-template-rows: 15% 70% 15%;
+  padding: 0 1rem;
+  gap: 1rem;
 }
-
 .chat-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: center;
+    // height: 50px;
+    // padding: 0 2rem;
     .user-details {
       display: flex;
       align-items: center;
@@ -150,6 +158,10 @@ overflow: hidden;
       font-size: 1.1rem;
       border-radius: 1rem;
       color: #d1d1d1;
+      @media screen and (min-width: 414px) and (max-width: 720px) {
+        max-width: 90%;
+      }
+
     }
   }
   .sended {
@@ -174,4 +186,11 @@ overflow: hidden;
   display: flex;
   flex-direction: row;
   }
+
+  @media screen and (min-width: 414px) and (max-width: 720px) {
+    .chat-input-container{
+   display: flex;
+    }
+  }
+
 `;
