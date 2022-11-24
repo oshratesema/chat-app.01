@@ -119,11 +119,11 @@ const Container = styled.div`
     @media screen and (min-width: 414px) and (max-width: 720px) {
       // position: relative;
       // right: 40px;  
-      // width: 115%;
+      width: 110%;
       }
     }
     input {
-      width: 90%;
+      width: 92%;
       height: 60%;
       background-color: transparent;
       color: white;
@@ -138,8 +138,9 @@ const Container = styled.div`
       }
     }
     button {
-      padding: 0.3rem 2rem;
-      border-radius: 2rem;
+      padding: 0.5rem 0.6rem;
+      border-radius: 70%;
+      // width: 130px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -153,10 +154,10 @@ const Container = styled.div`
       }
       @media screen and (min-width: 414px) and (max-width: 720px) {
         position: relative;
-        left: 30px;  
+        // left: -1px;  
       }
       svg {
-        font-size: 2rem;
+        font-size: 1.5rem;
         color: white;
       }
     }

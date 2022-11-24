@@ -67,7 +67,7 @@ export default function ChatContainer({currentChat, currentUser, socket}) {
         <div className="chat-header d-flex justify-content-between mt-5 mt-md-0" style={{height:'10%'}}>
             <div className="user-details">
                 <div className="avatar">
-                <img src={`data:image/svg+xml;base64,${currentChat.avatarImage}`} alt="avatar"/>
+                <img className='ms-3 ms-md-3' src={`data:image/svg+xml;base64,${currentChat.avatarImage}`} alt="avatar"/>
                 </div>
                 <div className="username">
                     <h3>{currentChat.username}</h3>

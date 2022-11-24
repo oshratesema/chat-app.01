@@ -32,8 +32,8 @@ export default function Contacts({contacts, currentUser, changeChat}) {
     return (
       <> 
       <Dropdown className='dropDown d-flex d-md-none' style={{height:'50px'}}>
-      <Dropdown.Toggle variant="success" className='bg-dark col-12 border border-dark' id="dropdown-basic" style={{width:'330px'}}>All Contacts</Dropdown.Toggle>
-      <Dropdown.Menu className='dropdown-menu bg-dark'style={{width:'330px'}}>
+      <Dropdown.Toggle variant="success" className='bg-dark col-12 border border-dark' id="dropdown-basic" style={{width:'352px'}}>All Contacts</Dropdown.Toggle>
+      <Dropdown.Menu className='dropdown-menu bg-dark'style={{width:'352px'}}>
             <div className="contacts d-flex flex-column bg-dark">
               {contacts.map((contact, index) => {
                 return (
