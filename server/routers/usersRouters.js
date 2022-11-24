@@ -9,3 +9,5 @@ router.get('/allUsers/:id', getAllUsers)
 
 
 module.exports = router;
+
+// https://chat-server-mu9a.onrender.com/api/auth/allUsers
