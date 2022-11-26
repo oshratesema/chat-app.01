@@ -4,7 +4,6 @@ import Logo from '../assets/logo.svg'
 import Dropdown from 'react-bootstrap/Dropdown';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
-
 export default function Contacts({contacts, currentUser, changeChat}) {
     const [currentUserName, setCurrentUserName] = useState(undefined);
     const [currentUserImage, setCurrentUserImage] = useState(undefined);
@@ -30,10 +29,10 @@ export default function Contacts({contacts, currentUser, changeChat}) {
     
 
     return (
-      <> 
-      <Dropdown className='dropDown d-flex d-md-none' style={{height:'50px'}}>
-      <Dropdown.Toggle variant="success" className='bg-dark col-12 border border-dark' id="dropdown-basic" style={{width:'352px'}}>All Contacts</Dropdown.Toggle>
-      <Dropdown.Menu className='dropdown-menu bg-dark'style={{width:'352px'}}>
+      <>
+      <Dropdown className='drop-down d-flex d-md-none justify-content-start' style={{height:'50px'}}>
+      <Dropdown.Toggle variant="success" className='DropdownToggle bg-dark col-12 border border-dark' id="dropdown-basic" style={{width:'320px'}}>All Contacts</Dropdown.Toggle>
+      <Dropdown.Menu className='dropdown-menu bg-dark'style={{width:'320px'}}>
             <div className="contacts d-flex flex-column bg-dark">
               {contacts.map((contact, index) => {
                 return (
@@ -104,6 +103,7 @@ export default function Contacts({contacts, currentUser, changeChat}) {
       </>
     );
   }
+
 
   const Container = styled.div`
     display: grid;
@@ -191,4 +191,9 @@ export default function Contacts({contacts, currentUser, changeChat}) {
         }
       }    
     }
+
+  
   `;
+
+
+

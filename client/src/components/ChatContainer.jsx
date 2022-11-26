@@ -112,12 +112,20 @@ overflow: hidden;
   padding: 0 1rem;
   gap: 1rem;
 }
+@media screen and (min-width: 375px) and (max-width: 414px) {
+  padding: 0 ;
+  gap: 1rem;
+}
 .chat-header {
     // display: flex;
     // justify-content: space-between;
     // align-items: center;
     // height: 50px;
     // padding: 0 2rem;
+    @media screen and (min-width: 375px) and (max-width: 414px) {
+      margin-top: 20px;
+    }
+
     .user-details {
       display: flex;
       align-items: center;
@@ -161,6 +169,9 @@ overflow: hidden;
       @media screen and (min-width: 414px) and (max-width: 720px) {
         max-width: 90%;
       }
+      @media screen and (min-width: 375px) and (max-width: 414px) {
+        max-width: 90%;
+      }
 
     }
   }
@@ -188,6 +199,11 @@ overflow: hidden;
   }
 
   @media screen and (min-width: 414px) and (max-width: 720px) {
+    .chat-input-container{
+   display: flex;
+    }
+  }
+  @media screen and (min-width: 375px) and (max-width: 414px) {
     .chat-input-container{
    display: flex;
     }

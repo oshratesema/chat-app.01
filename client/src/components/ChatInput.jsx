@@ -68,7 +68,7 @@ const Container = styled.div`
     gap: 1rem;
     .emoji {
       position: relative;
-      @media screen and (min-width: 414px) and (max-width: 720px) {
+      @media screen and (min-width: 375px) and (max-width: 720px) {
         position: relative;
         right:20px;
       }
@@ -76,7 +76,7 @@ const Container = styled.div`
         font-size: 1.5rem;
         color: #ffff00c8;
         cursor: pointer;
-        @media screen and (min-width: 414px) and (max-width: 720px) {
+        @media screen and (min-width: 375px) and (max-width: 720px) {
           width: 35px;
         }
 
@@ -116,7 +116,7 @@ const Container = styled.div`
     align-items: center;
     gap: 2rem;
     background-color: #ffffff34;
-    @media screen and (min-width: 414px) and (max-width: 720px) {
+    @media screen and (min-width: 375px) and (max-width: 720px) {
       // position: relative;
       // right: 40px;  
       width: 110%;
@@ -152,9 +152,8 @@ const Container = styled.div`
           font-size: 1rem;
         }
       }
-      @media screen and (min-width: 414px) and (max-width: 720px) {
+      @media screen and (min-width: 375px) and (max-width: 720px) {
         position: relative;
-        // left: -1px;  
       }
       svg {
         font-size: 1.5rem;

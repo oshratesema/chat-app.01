@@ -8,6 +8,8 @@ import Welcome from '../components/Welcome';
 import ChatContainer from '../components/ChatContainer';
 import {io} from 'socket.io-client'
 import Logo from '../assets/logo.svg'
+import Dropdown from 'react-bootstrap/Dropdown';
+
 
 
 function Chat() {
@@ -61,7 +63,7 @@ function Chat() {
               <img src={Logo} alt="logo" />
               <h3>snappy</h3>
       </div>
-      <div className="container ps-0">
+      <div className="container px-0">
             <Contacts contacts={contacts} currentUser={currentUser} changeChat={handleChatChange}/>
            {
             currentChat === undefined ? 
@@ -92,6 +94,9 @@ background-color: #131324;
     grid-template-columns: 35% 65%;
   }
   @media screen and (min-width: 414px) and (max-width: 720px) {
+    grid-template-columns: 0% 100%;
+  }
+  @media screen and (min-width: 375px) and (max-width: 414px) {
     grid-template-columns: 0% 100%;
   }
 }
