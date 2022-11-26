@@ -64,7 +64,7 @@ export default function ChatContainer({currentChat, currentUser, socket}) {
   return (
     <Container>
       <div className='chat-container d-flex flex-column mt-md-0 overflow-hidden' style={{height:'100%'}}>
-        <div className="chat-header d-flex justify-content-between mt-5 mt-md-0" style={{height:'10%'}}>
+        <div className="chat-header d-flex justify-content-between mt-md-0" style={{height:'10%'}}>
             <div className="user-details">
                 <div className="avatar">
                 <img className='ms-3 ms-md-3' src={`data:image/svg+xml;base64,${currentChat.avatarImage}`} alt="avatar"/>
@@ -113,7 +113,7 @@ overflow: hidden;
   gap: 1rem;
 }
 @media screen and (min-width: 375px) and (max-width: 414px) {
-  padding: 0 ;
+  padding: 0;
   gap: 1rem;
 }
 .chat-header {
@@ -123,7 +123,7 @@ overflow: hidden;
     // height: 50px;
     // padding: 0 2rem;
     @media screen and (min-width: 375px) and (max-width: 414px) {
-      margin-top: 20px;
+      margin-top: 55px;
     }
 
     .user-details {
