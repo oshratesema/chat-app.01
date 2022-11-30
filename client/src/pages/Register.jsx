@@ -156,6 +156,9 @@ const FormContainer = styled.div`
     background-color: #00000076;
     border-radius: 2rem;
     padding: 3rem 5rem;
+    @media screen and (min-width: 375px) and (max-width: 414px) {
+      padding: 30px 25px 30px 25px;
+    }
   }
   input {
     background-color: transparent;

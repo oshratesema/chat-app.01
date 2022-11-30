@@ -17,11 +17,6 @@ export default function Login() {
     draggable: true,
     theme: "dark",
   };
-  // useEffect(() => {
-  //   if (localStorage.getItem('chat-app-user')) {
-  //     navigate("/");
-  //   }
-  // }, []);
 
   const handleChange = (event) => {
     setValues({ ...values, [event.target.name]: event.target.value });
@@ -96,7 +91,8 @@ const FormContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1rem;
+  gap: 0rem;
+  // padding: 50px;
   align-items: center;
   background-color: #131324;
   .brand {
@@ -119,6 +115,10 @@ const FormContainer = styled.div`
     background-color: #00000076;
     border-radius: 2rem;
     padding: 5rem;
+    @media screen and (min-width: 375px) and (max-width: 414px) {
+      padding: 70px 25px 70px 25px;
+    }
+    
   }
   input {
     background-color: transparent;

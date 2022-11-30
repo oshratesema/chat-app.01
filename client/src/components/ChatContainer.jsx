@@ -73,7 +73,7 @@ export default function ChatContainer({currentChat, currentUser, socket}) {
                     <h3>{currentChat.username}</h3>
                 </div>
             </div>
-            <div className='d-flex align-items-center'>
+            <div className='logout d-none d-md-flex align-items-center'>
             <Logout/>
             </div>
         </div>

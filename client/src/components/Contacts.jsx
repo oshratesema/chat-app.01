@@ -2,6 +2,7 @@ import React,{useState, useEffect} from 'react'
 import styled from 'styled-components'
 import Logo from '../assets/logo.svg'
 import Dropdown from 'react-bootstrap/Dropdown';
+import Logout from '../components/Logout'
 import DropdownButton from 'react-bootstrap/DropdownButton';
 
 export default function Contacts({contacts, currentUser, changeChat}) {
@@ -53,7 +54,22 @@ export default function Contacts({contacts, currentUser, changeChat}) {
                   </div>
                 );
               })}
-
+            <div className="d-flex current-user align-items-center">
+              <div className='col-10 d-flex align-items-center'>
+              <div className="avatar col-2 ms-2">
+                <img
+                  src={`data:image/svg+xml;base64,${currentUserImage}`}
+                  alt="avatar"
+                />
+              </div>
+              <div className="username">
+                <h6 className='text-white ms-2'>{currentUserName}</h6>
+              </div>
+              </div>
+              <div className='d-flex align-items-center'>
+            <Logout/>
+              </div>
+            </div>
             </div>
       </Dropdown.Menu>
       </Dropdown>
