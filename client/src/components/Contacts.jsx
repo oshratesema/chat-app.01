@@ -13,7 +13,7 @@ export default function Contacts({contacts, currentUser, changeChat}) {
 
     useEffect(() => {
      if(currentUser){
-        setCurrentUserImage(currentUser.avatarImage);
+        setCurrentUserImage(currentUser.profileImage);
         setCurrentUserName(currentUser.username);
      }
     },[currentUser])
@@ -25,7 +25,7 @@ export default function Contacts({contacts, currentUser, changeChat}) {
 
     const handleDropdown = () => {
       setOpen(!open)
-    }
+    }        
 
     
 
@@ -116,6 +116,7 @@ export default function Contacts({contacts, currentUser, changeChat}) {
           </Container>
         )}        
       </div>
+      
       </>
     );
   }

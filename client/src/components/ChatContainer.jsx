@@ -160,10 +160,10 @@ overflow: hidden;
     display: flex;
     align-items: center;
     .content{
-      max-width: 40%;
+      max-width: 40%;    
       overflow-wrap: break-word;
       padding: 1rem;
-      font-size: 1.1rem;
+      font-size: 1.1rem;   
       border-radius: 1rem;
       color: #d1d1d1;
       @media screen and (min-width: 414px) and (max-width: 720px) {

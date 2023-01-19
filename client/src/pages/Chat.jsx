@@ -8,7 +8,6 @@ import Welcome from '../components/Welcome';
 import ChatContainer from '../components/ChatContainer';
 import {io} from 'socket.io-client'
 import Logo from '../assets/logo.svg'
-import Dropdown from 'react-bootstrap/Dropdown';
 
 
 
@@ -33,7 +32,7 @@ function Chat() {
         if(currentUser.isAvatarImageSet){
           const data = await axios.get(`${allUsersRoute}/${currentUser._id}`)
           setContacts(data.data)
-        }else{
+        }else{         
        navigate('/setAvatar')
      }
    }
@@ -41,7 +40,7 @@ function Chat() {
 
   useEffect(() => {
     if(currentUser){
-      socket.current = io(host);
+      socket.current = io(host);    
       socket.current.emit('add-user', currentUser._id);
     }
   },[currentUser])
